@@ -1,0 +1,26 @@
+#canvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px;
+}
+
+#start-stop {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col {
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+}
+
+#solutions-range {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

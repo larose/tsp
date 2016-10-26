@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>An Elastic Net Algorithm for the Traveling Salesman Problem</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="css/nouislider.css" media="screen"/>
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col s12">
+          <h3 class="center-align">Traveling Salesman Problem</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="valign-wrapper">
+            <form class="valign">
+
+              <label for="cities" >Number of cities</label>
+              <p class="range-field">
+                <input id="cities" name="cities" type="range" min="10" max="200" step="10" value="50">
+              </p>
+
+              <div class="tooltipped" data-tooltip="Attraction to the cities" data-position="right">
+                <label for="alpha">Alpha</label>
+                <p class="range-field">
+                  <input id="alpha" name="alpha" type="range" min="0" max="1.5" step="0.05" value="0.2">
+                </p>
+              </div>
+
+              <div class="tooltipped" data-tooltip="Attraction to the other points" data-position="right">
+                <label for="beta">Beta</label>
+                <p class="range-field">
+                  <input id="beta" name="beta" type="range" min="0" max="3" step="0.1" value="2">
+                </p>
+              </div>
+
+              <div class="center-align">
+                <a id="start-stop" class="waves-effect waves-light btn-large">Start</a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col s12 m8">
+          <canvas id="canvas">
+          </canvas>
+          <p class="range-field">
+            <input id="solutions-range" type="range" min="1" max="1">
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col l8 offset-l2">
+          <h4>What am I looking at?</h4>
+
+          <p>You are looking at the visualization of an algorithm to
+            solve the Traveling Salesman Problem (TSP).<p>
+
+        </div>
+
+        <div class="col l8 offset-l2">
+          <h4>What is the Traveling Salesman Problem (TSP)?</h4>
+
+          <p>Given a collection of cities, the TSP is a problem where
+            a salesman has to visit each city exactly once - and to
+            return to its starting point - by traveling the shortest
+            distance.</p>
+
+          <p>The TSP naturally arises as a subproblem in many
+          transportation and logistics applications. You can even use
+          it
+          to <a href="http://www.math.uwaterloo.ca/tsp/poke/index.html">catch
+          all the pokemons in your area as quickly as
+          possible</a>.</p>
+
+          <p>In the image above, the black circles represent the
+            cities and the empty circles linked by the red edges form
+            an elastic. The elastic is the visualization of the
+            Elastic Net algorithm.</p>
+
+        </div>
+
+        <div class="col l8 offset-l2">
+          <h4>What is the Elastic Net algorithm?</h4>
+
+          <p>The Elastic Net algorithm is
+            a <a href="https://en.wikipedia.org/wiki/Heuristic">heuristic</a>
+            to solve the TSP. It finds a tour that has a short
+            distance, but not necessary the shortest tour.
+
+          <p>The Elastic Net algorithm is an iterative method where an
+            elastic is gradually stretched until it passes
+            sufficiently near each city to define a tour. During that
+            process two forces apply: one for minimizing the distance
+            between the cities and the points on the elastic (alpha)
+            and the other one for minimizing the length of the elastic
+            (beta). These forces are gradually adjusted as the
+            procedure evolves.
+            (<a href="http://www.iro.umontreal.ca/~dift6751/paper_potvin_nn_tsp.pdf">Potvin,
+            1992</a>)</p>
+
+          <p>You can control these two forces (alpha and beta) by
+            using the corresponding sliders above.</p>
+
+          <p>The algorithm is described in
+          this <a href="durbin1987.pdf">paper</a>.
+
+        </div>
+
+        <div class="col l8 offset-l2">
+          <h4>Is the Elastic Net algorithm the best method to solve
+            the TSP?</h4>
+          <p>
+            Absolutely not. I chose it because it is simple to code
+            and easy to
+            visualize. <a href="http://www.math.uwaterloo.ca/tsp/concorde.html">Concorde</a>
+            is the best solver.
+          </p>
+        </div>
+
+
+        <div class="col l8 offset-l2">
+          <h4>Where is the source code?</h4>
+          <p><a href="https://github.com/larose/tsp">https://github.com/larose/tsp</a></p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/nouislider.min.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
